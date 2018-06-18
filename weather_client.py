@@ -1,5 +1,4 @@
-
-def main()
+def main():
     # print header
     print_the_header()
 
@@ -11,14 +10,17 @@ def main()
     # display for the forcast
     print("Main section")
 
+
 def print_the_header():
     print('--------------------------------------------------')
     print('                   Weather App                    ')
     print('--------------------------------------------------')
     print()
 
+
 def get_html_from_web(zipcode):
     url = 'http://www.wunderground.com/weather-forcast/{}'.format(zipcode)
+
 
 if __name__ == '__main__':
     main()

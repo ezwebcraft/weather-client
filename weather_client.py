@@ -2,6 +2,7 @@ import requests
 
 import bs4
 
+
 def main():
     # print header
     print_the_header()
@@ -26,12 +27,14 @@ def print_the_header():
 def get_html_from_web(zipcode):
     url = 'http://www.wunderground.com/weather-forecast/{}'.format(zipcode)
     response = requests.get(url)
-    #print(response.status_code)
+    # print(response.status_code)
     return response.text
+
 
 def get_weather_from_html(html):
     soup = bs4.BeautifulSoup(html)
     print(soup)
+
 
 if __name__ == '__main__':
     main()

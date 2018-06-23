@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import requests
 
 import bs4
@@ -13,7 +15,7 @@ def main():
     html = get_html_from_web(code)
     # parse the html
     get_weather_from_html(html)
-    # display for the forcast
+    # display for the forcastp
     print("Main section")
 
 
@@ -32,7 +34,9 @@ def get_html_from_web(zipcode):
 
 
 def get_weather_from_html(html):
-    soup = bs4.BeautifulSoup(html)
+    soup = bs4.BeautifulSoup(html, 'html.parser')
+
+
     print(soup)
 
 

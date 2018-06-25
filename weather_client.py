@@ -8,9 +8,8 @@ import bs4
 def main():
     # print header
     print_the_header()
-
     # get zipcode from user
-    code = input("Enter Zip code for the weather info you want")
+    code = input("Enter Zip code for the weather info you want (11102): ")
     # get html from web
     html = get_html_from_web(code)
     # parse the html
@@ -35,9 +34,11 @@ def get_html_from_web(zipcode):
 
 def get_weather_from_html(html):
     soup = bs4.BeautifulSoup(html, 'html.parser')
+    loc = soup.find(class_='region-content-header').find('h1').get_text()
 
 
-    print(soup)
+    # print(loc)
+    print(loc)
 
 
 if __name__ == '__main__':

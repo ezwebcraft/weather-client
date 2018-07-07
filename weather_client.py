@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import requests
 import bs4
 
@@ -40,5 +38,5 @@ def get_weather_from_html(html):
 
     print(condition, temp, scale)
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()

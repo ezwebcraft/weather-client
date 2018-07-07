@@ -1,7 +1,6 @@
-#!/bin/python3
+#!/usr/bin/python3
 
 import requests
-
 import bs4
 
 
@@ -34,12 +33,12 @@ def get_html_from_web(zipcode):
 
 def get_weather_from_html(html):
     soup = bs4.BeautifulSoup(html, 'html.parser')
-    loc = soup.find(class_='region-content-header').find('h1').get_text()
+    loc = soup.find(id='location').find('h1').get_text()
+    condition = soup.find(id ='curCond').find( class_ = 'wx-value').get_text()
+    temp = soup.find(id ='curTemp').find( class_ = 'wx-value').get_text()
+    scale = soup.find(id ='curTemp').find( class_ = 'wx-value').get_text()
 
+    print(condition, temp, scale)
 
-    # print(loc)
-    print(loc)
-
-
-if __name__ == '__main__':
-    main()
+    if __name__ == '__main__':
+        main()

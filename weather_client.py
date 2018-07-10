@@ -43,8 +43,10 @@ def get_weather_from_html(html):
     soup = bs4.BeautifulSoup(html, 'html.parser')
     loc = soup.find(class_='region-content-header').find('h1').get_text()
     condition = soup.find(class_='condition-icon').get_text()
-    temp = soup.find(class_='wu-unit-temperature').find(class_='wu-value').get_text()
-    scale = soup.find(class_='wu-unit-temperature').find(class_='wu-label').get_text()
+    temp = soup.find(
+        class_='wu-unit-temperature').find(class_='wu-value').get_text()
+    scale = soup.find(
+        class_='wu-unit-temperature').find(class_='wu-label').get_text()
     loc = cleanup_text(loc)
     loc = find_city_and_state_from_location(loc)
     condition = cleanup_text(condition)
@@ -55,6 +57,7 @@ def get_weather_from_html(html):
     # return (condition, temp, scale, loc)
     report = WeatherReport(cond=condition, temp=temp, scale=scale, loc=loc)
     return report
+
 
 def find_city_and_state_from_location(loc: str):
     parts = loc.split('\n')

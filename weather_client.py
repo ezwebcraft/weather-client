@@ -10,9 +10,9 @@ def main():
     # get html from web
     html = get_html_from_web(code)
     # parse the html
-    get_weather_from_html(html)
+    report = get_weather_from_html(html)
     # display for the forcastp
-    print("Main section")
+    print("The temp of the location is: {}".format(report[1]))
 
 
 def print_the_header():
@@ -43,8 +43,8 @@ def get_weather_from_html(html):
     temp = cleanup_text(temp)
     scale = cleanup_text(scale)
 
-    print(condition, temp, scale)
-
+    #print(condition, temp, scale, loc)
+    return (condition, temp, scale, loc)
 
 def find_city_and_state_from_location(loc: str):
     parts = loc.split('\n')

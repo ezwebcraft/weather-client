@@ -1,4 +1,4 @@
-# weather-client
+# weather_client
 a basic weather client app
 
 
